@@ -7,7 +7,6 @@ The implementation is done using python, flask, d3.js and html.
 ## Backend
 ```
 $ git clone https://git.cs.dal.ca/varu/radviz.git
-$ cd VAProjectAPI-2
 $ py -m venv env
 $ .\env\Scripts\activate
 $ pip install -r requirements.txt
