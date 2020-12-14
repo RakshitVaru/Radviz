@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Radviz D3</title>
+      <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+      <link rel="stylesheet" type="text/css" href="static/css/style.css">
+      <script type="text/javascript" src="static/js/graph.js"></script>
+  </head>
+  <body>
+    <!--THE HEADING FOR THE PAGE-->
+    <div id="title">
+      <h1> Visual Analytics Assignment 2</h1>
+    </div>
+
+    <!--CSV INPUT TAG-->
+    <div id="textinput">
+        <h4>To get the switch mode for label based radviz, first click on cluster to generate clusters.</h4>
+        <button type="button" class="button" name="start" onclick="start()">Class Based</button>
+        <button type="button" class="button" name="cluster" onclick="cluster()">Cluster Based</button>
+        <button onclick="location.href='http://localhost:5000/'" name="selection" type="button">Select new dataset</button>
+    </div>
+
+    <!--DIVISION TO SHOW THE RADVIZ-->
+    <div class="circle">
+      <div id="radviz">
+      </div>
+      <h2>Scale to set the opacity of the points</h2>
+      <span class="leftlabel">0</span>
+      <input id ="range1" type="range" min="20" max="100" value="100" style="width: 400px; margin-right: 10px;"  >
+      <span class="rightlabel">100</span>
+    </div>
+
+    <!--DIVISION TO SHOW THE ATTRIBUTES AND COLOR DIVISION-->
+    <div class="heatmap" style="text-align:center" id="heatmap">
+        <b><h2>Correlation Matrix</h2></b>
+        <div class="hide" id="image">
+        </div>
+    </div>
+    <div class="left">
+      <form action="setAttr" id="setattr" class="display">
+        <p class="title2"> <b><h2>Select Variables:</h2></b> </p>
+        <table>
+          <tr>
+            <td id="num"></td>
+          </tr>
+        </table>
+      </form>
+
+      <form action="setcolor" id="setcolor" class="display">
+        <p> <b><h2>Color by:</h2></b> </p>
+        <table>
+          <tr>
+            <td id="colorVar">
+              <g><input type="radio" id="black" value="-1" label="None" name="coloratr" checked></input>
+                <text>Black</text>
+                <p></p>
+              </g>
+              <g id="color"></g>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <div id="tip" style="text-align:center" class="left">
+        <b><h2>Information Area</h2></b>
+        <div class="hidden" style="text-align:center">
+          <g id="nonnum"></g>
+          <g id="colcat"></g>
+          <g id="num"></g>
+        </div>
+      </div>
+      
+    </div>
+
+    <!--DIVISION FOR TOOLTIP-->
+    <div class="right">
+      <form action="settooltip" id="settooltip" class="display">
+        <p class="title2"> <b><h2>Show in Tooltip:</h2></b> </p>
+        <p id="subtitleDisplay" style="margin-bottom:10px"> Features for tooltip </p>
+        <table>
+          <tr>
+            <td id="tools" class="selectionAlignment"></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    
+    <!--SCRIPT CALLED FOR D3 WORKING-->
+    
+    <script type=text/javascript src="{{ url_for('static', filename='js/graph.js') }}"></script>
+  </body>
+</html>

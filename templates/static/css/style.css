@@ -1,0 +1,29 @@
+.left { 
+  width: 25%;
+  height: 100%;
+  position: relative;
+  float: left; 
+} 
+.circle{ 
+  width: 50%;
+  height: 100%;
+  float: left;
+} 
+.right{ 
+width: 25%;
+height: 100%;
+position: relative;
+float: right; 
+}  
+
+#title{
+  text-align: center;    
+  font-size: 30px;
+}
+
+.heatmap{
+  width: 25%;
+  height: 100%;
+  position: relative;
+  float: right;
+}
